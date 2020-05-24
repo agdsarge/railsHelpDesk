@@ -1,4 +1,4 @@
-class IspsController < ApplicationController
+class TicketsController < ApplicationController
   def index
   end
 
