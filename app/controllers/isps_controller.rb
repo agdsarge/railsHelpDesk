@@ -1,0 +1,2 @@
+class IspController < ApplicationController
+end
