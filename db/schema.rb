@@ -17,8 +17,7 @@ ActiveRecord::Schema.define(version: 2020_05_24_173458) do
     t.string "phone_number"
     t.string "email"
     t.string "home_address"
-    t.string "isp_id"
-    t.string "integer"
+    t.integer "isp_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
