@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyString
+  ticket_id: 1
+  internal: false
+
+two:
+  text: MyString
+  ticket_id: 1
+  internal: false
