@@ -14,6 +14,11 @@
 <div><%= @ticket.professional.email%></div>
 
 <br>
+<h4>button to toggle ticket status [open, close]</h4>
+<!-- if you're a Pro, you might want a button to contact the ISP with a auto-generated form. -->
+<br>
+
+
 <h3> All comments for this ticket: </h3>
 
 <% @ticket.comments.each do |cm| %>
@@ -26,7 +31,12 @@
     <%= f.label :text %>
     <%= f.text_field :text %>
     <%= f.label :internal %>
+    <%# if cookies[:logged_in].class == Professional %>
     <%= f.check_box :internal %>
+    <%# else %>
+    <%# f.hidden_field :internal :value => false %>
+    <%# end %>
     <%= f.hidden_field :ticket_id, :value => @ticket.id %>
+    <%# f.hidden_field :username, :value => cookies[:logged_in].username %>
     <%= f.submit%>
 <% end %>
