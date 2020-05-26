@@ -20,7 +20,7 @@
     <div><%= cm.text %></div>
 <% end %>
 
-<%= link_to "Add a new comment", edit_ticket_path(@ticket)%>
+<%= link_to "Add a new comment", new_comment_path(@ticket.id)%>
 
 
 

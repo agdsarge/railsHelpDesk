@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
 
   def new
     @comment = Comment.new
+    # @ticket = Ticket.find
   end
 
   def create
@@ -17,7 +18,7 @@ class CommentsController < ApplicationController
     @comment.ticket = Ticket.first #change this you idiots
     if @comment.valid?
         @comment.save
-        redirect_to comment_path(@comment)
+        redirect_to ticket_path(@comment.ticket_id)
     else
       render :new
     end
@@ -31,7 +32,7 @@ class CommentsController < ApplicationController
     @comment.update
     if @comment.valid?
       @comment.save
-      redirect_to comment_path(@comment)
+      redirect_to ticket_path(@comment.ticket_id)
     else
       render :edit
     end
@@ -45,7 +46,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text, :internal)
+    params.require(:comment).permit(:text, :internal, :ticket_id)
   end
 
   def find_comment

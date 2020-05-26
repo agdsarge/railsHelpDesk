@@ -1,0 +1,7 @@
+<%= form_for @comment do |f| %>
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+    <%= f.label :internal %>
+    <%= f.check_box :internal %>
+    <%= f.submit%>
+<% end %>
