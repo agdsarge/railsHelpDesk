@@ -1,2 +1,26 @@
-<h1>Tickets#show</h1>
-<p>Find me in app/views/tickets/show.html.erb</p>
+<h1> This is ticket number <%= @ticket.id%>.</h1>
+
+<h3> Client info: </h3>
+
+<div><%= @ticket.client.name %></div>
+<div><%= @ticket.client.email %></div>
+<div><%= @ticket.client.home_address %></div>
+<div><%= @ticket.client.phone_number %></div>
+
+<br>
+<h3>Assigned Professional:</h3>
+
+<div><%= @ticket.professional.name%></div>
+<div><%= @ticket.professional.email%></div>
+
+<br>
+<h3> All comments for this ticket: </h3>
+
+<% @ticket.comments.each do |cm| %>
+    <div><%= cm.text %></div>
+<% end %>
+
+<%= link_to "Add a new comment", edit_ticket_path(@ticket)%>
+
+
+

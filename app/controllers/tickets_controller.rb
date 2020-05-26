@@ -28,12 +28,16 @@ class TicketsController < ApplicationController
   end
 
   def edit
-
+    # @ticket.comments.build
+    @specialties = Professional.pluck(:specialty)
   end
 
   def update
-    @ticket.update
+    @ticket.update(ticket_params)
+    @ticket.client = Client.find(cookies[:logged_in])
+    @ticket.professional = Professional.find_by(specialty: @ticket.description)
     if @ticket.valid?
+      @ticket.open = true
       @ticket.save
       redirect_to ticket_path(@ticket)
     else
