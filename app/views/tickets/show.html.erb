@@ -20,7 +20,13 @@
     <div><%= cm.text %></div>
 <% end %>
 
-<%= link_to "Add a new comment", new_comment_path(@ticket.id)%>
-
-
-
+<h4>Add a new Comment </h4>
+<% @comment = Comment.new %>
+<%= form_for @comment do |f| %>
+    <%= f.label :text %>
+    <%= f.text_field :text %>
+    <%= f.label :internal %>
+    <%= f.check_box :internal %>
+    <%= f.hidden_field :ticket_id, :value => @ticket.id %>
+    <%= f.submit%>
+<% end %>

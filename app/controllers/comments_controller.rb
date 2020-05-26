@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.ticket = Ticket.first #change this you idiots
+    #change this you idiots
     if @comment.valid?
         @comment.save
         redirect_to ticket_path(@comment.ticket_id)

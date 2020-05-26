@@ -10,24 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_173458) do
+ActiveRecord::Schema.define(version: 2020_05_26_211629) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
     t.string "username"
-    t.string "password"
     t.string "phone_number"
     t.string "email"
     t.string "home_address"
     t.integer "isp_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
   create_table "comments", force: :cascade do |t|
     t.string "text"
     t.integer "ticket_id"
     t.boolean "internal"
+    t.string "username"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -42,11 +43,11 @@ ActiveRecord::Schema.define(version: 2020_05_24_173458) do
   create_table "professionals", force: :cascade do |t|
     t.string "name"
     t.string "username"
-    t.string "password"
     t.string "specialty"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
   create_table "tickets", force: :cascade do |t|

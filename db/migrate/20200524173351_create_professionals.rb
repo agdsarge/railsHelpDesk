@@ -3,7 +3,6 @@ class CreateProfessionals < ActiveRecord::Migration[6.0]
     create_table :professionals do |t|
       t.string :name
       t.string :username
-      t.string :password
       t.string :specialty
       t.string :email
 

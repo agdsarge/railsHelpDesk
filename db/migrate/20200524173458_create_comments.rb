@@ -4,6 +4,7 @@ class CreateComments < ActiveRecord::Migration[6.0]
       t.string :text
       t.integer :ticket_id
       t.boolean :internal
+      t.string :username
 
       t.timestamps
     end
