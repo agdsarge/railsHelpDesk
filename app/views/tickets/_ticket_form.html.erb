@@ -3,9 +3,13 @@
 <%= form_for @ticket do |f|%>
     <%= f.label :description %>
     <%= f.select :description, @specialties %>
-    <%= fields_for :comments do |cf|%>
-        <%= cf.label :text%>
-        <%= cf.text_field :text%>
-    <% end %>
+
+    <h4> Please describe the issue </h4>
+        <%= f.fields_for :comments do |cf| %>
+            <div>
+                <%= cf.label :text %>
+                <%= cf.text_field :text %>
+            </div>
+        <% end %>
     <%= f.submit %>
 <% end %>

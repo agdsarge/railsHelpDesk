@@ -10,6 +10,7 @@ class TicketsController < ApplicationController
   def new
     cookies[:logged_in] = Client.first.id # change this you idiots.
     @ticket = Ticket.new
+    @ticket.comments.build
     @specialties = Professional.pluck(:specialty)
   end
 
