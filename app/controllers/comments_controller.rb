@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.ticket = Ticket.first #change this you idiots
     if @comment.valid?
-        @comment = Comment.find_or_create_by(text: @comment.text)
+        @comment.save
         redirect_to comment_path(@comment)
     else
       render :new
