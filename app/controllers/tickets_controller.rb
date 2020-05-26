@@ -35,7 +35,7 @@ class TicketsController < ApplicationController
     if @ticket.valid?
       @ticket.save
       redirect_to ticket_path(@ticket)
-    else 
+    else
       render :edit
     end
   end
@@ -55,5 +55,3 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
   end
 end
-
-kjkjk

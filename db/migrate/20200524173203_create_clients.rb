@@ -8,8 +8,6 @@ class CreateClients < ActiveRecord::Migration[6.0]
       t.string :email
       t.string :home_address
       t.integer :isp_id
-      
-
       t.timestamps
     end
   end

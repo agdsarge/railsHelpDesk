@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  
-  before_action :find_isp, only: [:show, :edit, :update, :destroy]
+
+  before_action :find_comment, only: [:show, :edit, :update, :destroy]
   def index
     @comments = Comment.all
   end
@@ -14,9 +14,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.ticket = Ticket.first #change this you idiots
     if @comment.valid?
-      @comment.save
-      redirect_to comment_path(@comment)
+        @comment.save
+        redirect_to comment_path(@comment)
     else
       render :new
     end
@@ -31,7 +32,7 @@ class CommentsController < ApplicationController
     if @comment.valid?
       @comment.save
       redirect_to comment_path(@comment)
-    else 
+    else
       render :edit
     end
   end
@@ -44,10 +45,10 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text, :ticket_id, :internal)
+    params.require(:comment).permit(:text, :internal)
   end
 
-  def find_isp
+  def find_comment
     @comment = Comment.find(params[:id])
   end
 end
