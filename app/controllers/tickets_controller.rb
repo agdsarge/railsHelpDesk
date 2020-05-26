@@ -8,12 +8,17 @@ class TicketsController < ApplicationController
   end
 
   def new
+    cookies[:logged_in] = Client.first.id # change this you idiots.
     @ticket = Ticket.new
+    @specialties = Professional.pluck(:specialty)
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
+    @ticket.client = Client.find(cookies[:logged_in]) # change this you idiots.
+    @ticket.professional = Professional.find_by(specialty: @ticket.description)
     if @ticket.valid?
+      @ticket.open = true
       @ticket.save
       redirect_to ticket_path(@ticket)
     else
@@ -43,7 +48,7 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:description, :open, :client_id, :professional_id)
+    params.require(:ticket).permit(:description, :open, :client_id, :professional_id, comments_attributes: [:text, :ticket_id, :internal])
   end
 
   def find_isp

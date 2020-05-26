@@ -1,0 +1,11 @@
+<%= render partial: "shared/error_form", locals: {new_obj: @ticket} %>
+
+<%= form_for @ticket do |f|%>
+    <%= f.label :description %>
+    <%= f.select :description, @specialties %>
+    <%= fields_for :comments do |cf|%>
+        <%= cf.label :text%>
+        <%= cf.text_field :text%>
+    <% end %>
+    <%= f.submit %>
+<% end %>
