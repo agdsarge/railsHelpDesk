@@ -14,6 +14,8 @@ ActiveRecord::Schema.define(version: 2020_05_24_173458) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
+    t.string "username"
+    t.string "password"
     t.string "phone_number"
     t.string "email"
     t.string "home_address"
@@ -38,7 +40,9 @@ ActiveRecord::Schema.define(version: 2020_05_24_173458) do
   end
 
   create_table "professionals", force: :cascade do |t|
+    t.string "name"
     t.string "username"
+    t.string "password"
     t.string "specialty"
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
