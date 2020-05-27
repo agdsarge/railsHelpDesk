@@ -29,7 +29,13 @@
 <h3> All comments for this ticket: </h3>
 
 <% @ticket.comments.each do |cm| %>
-    <div><%= cm.text %></div>
+    <% if session[:user_class] == "Professional"%>
+        <div><%= "#{cm.username}: #{cm.text} (#{cm.internal ? 'internal' : 'external'})" %></div>
+    <% else %>
+        <% unless cm.internal %>
+            <div><%= "#{cm.username}: #{cm.text}" %></div>
+        <% end %>
+    <% end %>
 <% end %>
 
 <h4>Add a new Comment </h4>
@@ -37,13 +43,13 @@
 <%= form_for @comment do |f| %>
     <%= f.label :text %>
     <%= f.text_field :text %>
-    <%= f.label :internal %>
-    <%# if cookies[:logged_in].class == Professional %>
-    <%= f.check_box :internal %>
-    <%# else %>
-    <%# f.hidden_field :internal :value => false %>
-    <%# end %>
+    <% if session[:user_class] == "Professional"%>
+        <%= f.label :internal %>
+        <%= f.check_box :internal %>
+    <% else %>
+        <% f.hidden_field :internal, :value => false %>
+    <% end %>
     <%= f.hidden_field :ticket_id, :value => @ticket.id %>
-    <%# f.hidden_field :username, :value => cookies[:logged_in].username %>
+    <%= f.hidden_field :username, :value => session[:username] %>
     <%= f.submit%>
 <% end %>

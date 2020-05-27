@@ -3,8 +3,16 @@
 <h2> logout button </h2>
 
 <%= @professional.name %>
+<h4>Open Tickets:</h4>
 <ol>
-<% @tickets.each do |t| %>
-    <li><%= link_to "Ticket no. #{t.id}: #{t.client.name} of #{t.client.home_address}", ticket_path(t) %></li>
-<% end %>
+    <% @open_tickets.each do |t| %>
+        <li><%= link_to "Ticket no. #{t.id}: #{t.client.name} of #{t.client.home_address}", ticket_path(t) %></li>
+    <% end %>
+</ol>
+
+<h4>Closed Tickets:</h4>
+<ol>
+    <% @closed_tickets.each do |t| %>
+        <li><%= link_to "Ticket no. #{t.id}: #{t.client.name} of #{t.client.home_address}", ticket_path(t) %></li>
+    <% end %>
 </ol>

@@ -46,7 +46,7 @@ class CommentsController < ApplicationController
     private
 
     def comment_params
-        params.require(:comment).permit(:text, :internal, :ticket_id)
+        params.require(:comment).permit(:text, :internal, :ticket_id, :username)
     end
 
     def find_comment

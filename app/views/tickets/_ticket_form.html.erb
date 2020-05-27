@@ -11,6 +11,7 @@
                 <%= cf.text_field :text %>
                 <%= cf.label :internal %>
                 <%= cf.check_box :internal %>
+                <%= cf.hidden_field :username, :value => session[:username] %>
             </div>
         <% end %>
     <%= f.submit %>
