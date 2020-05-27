@@ -38,3 +38,51 @@ merry = Professional.create(name: "Merry Brandybuck", username: 'm.brandybuck', 
 pippin  = Professional.create(name: "Pippin Took", username: 'p.took', password: "password", specialty: 'routers', email: 'p.took@greenleaf.com')
 bilbo = Professional.create(name: "Bilbo Baggins", username: 'b.baggins', password: "password", specialty: 'surge protectors', email: 'b.baggins@greenleaf.com')
 fredegar = Professional.create(name: "Fredegar Bulger", username: 'f.bulger', password: "password", specialty: 'modem', email: 'f.bulger@greenleaf.com')
+
+ticket1 = Ticket.create(description: "routers", open: true, client: pn, professional: frodo)
+ticket2 = Ticket.create(description: "routers", open: true, client: sn, professional: pippin)
+ticket3 = Ticket.create(description: "surge protectors", open: true, client: ag, professional: sam)
+ticket4 = Ticket.create(description: "surge protectors", open: true, client: as, professional: bilbo)
+ticket5 = Ticket.create(description: "wifi", open: true, client: ds, professional: merry)
+ticket6 = Ticket.create(description: "modem", open: true, client: ep, professional: fredegar)
+
+comment1 = Comment.create(text: "My wifi no work.", ticket: ticket5, internal: false, username: "d.sargeant")
+comment2 = Comment.create(text: "Hey, is the router plugged in?", ticket: ticket5, internal: false, username: "m.brandybuck")
+comment3 = Comment.create(text: "Idk what a plug is.", ticket: ticket5, internal: false, username: "d.sargeant")
+comment4 = Comment.create(text: "Client appears to be a high functioning idiot.", ticket: ticket5, internal: true, username: "m.brandybuck")
+comment5 = Comment.create(text: "Solved the problem by plugging in router.", ticket: ticket5, internal: false, username: "m.brandybuck")
+
+comment11 = Comment.create(text: "There is a red blinking light on my router.", ticket: ticket1, internal: false, username: "p.nicholsen")
+comment12 = Comment.create(text: "Hey, is the ethernet cable plugged into the modem?", ticket: ticket1, internal: false, username: "f.baggins")
+comment13 = Comment.create(text: "Yes. I am not an idiot!  In fact, I know everything.", ticket: ticket1, internal: false, username: "p.nicholsen")
+comment14 = Comment.create(text: "Look at this guy.  Claims he knows everything but needs to ask us how to fix the router.", ticket: ticket1, internal: false, username: "f.baggins")
+comment15 = Comment.create(text: "Whoops, that was supposed to be internal.", ticket: ticket1, internal: true, username: "f.baggins")
+comment16 = Comment.create(text: "Well, Green Leaf Squad has just lost my business.  Adieu!", ticket: ticket1, internal: false, username: "p.nicholsen")
+
+comment21 = Comment.create(text: "Hey, so my router caught fire. Can I have a new one?", ticket: ticket2, internal: false, username: "s.nabors")
+comment22 = Comment.create(text: "How did it catch fire?", ticket: ticket2, internal: false, username: "p.took")
+comment23 = Comment.create(text: "My code was too powerful for the router.", ticket: ticket2, internal: false, username: "s.nabors")
+comment24 = Comment.create(text: "Seems legit.", ticket: ticket2, internal: true, username: "p.took")
+comment25 = Comment.create(text: "Absolutely.  We will send you one ASAP.  Sorry for the inconvenience.", ticket: ticket2, internal: false, username: "p.took")
+
+comment31 = Comment.create(text: "This third gym is really tough.  What should I do?", ticket: ticket3, internal: false, username: "a.gautherin")
+comment32 = Comment.create(text: "Mr. Alex, I don't understand. I am just a gardener.", ticket: ticket3, internal: false, username: "s.gamgee")
+comment33 = Comment.create(text: "My team keeps fainting to his right shoe.", ticket: ticket3, internal: false, username: "a.gautherin")
+comment34 = Comment.create(text: "Can anyone help me with this?", ticket: ticket3, internal: true, username: "s.gamgee")
+comment35 = Comment.create(text: "Tell him to go to the cave east of the city.", ticket: ticket3, internal: true, username: "m.brandybuck")
+comment36 = Comment.create(text: "Check out the cave east of the city.", ticket: ticket3, internal: false, username: "s.gamgee")
+comment37 = Comment.create(text: "Thanks!  Now I have a Thunder Badge!", ticket: ticket3, internal: false, username: "a.gautherin")
+
+
+comment41 = Comment.create(text: "I don't actually have a problem.  I am just checking out your website.", ticket: ticket4, internal: false, username: "a.sharma")
+comment42 = Comment.create(text: "Thanks so much.  Have a good day.", ticket: ticket4, internal: false, username: "b.baggins")
+comment43 = Comment.create(text: "What a meddle-some person.", ticket: ticket4, internal: true, username: "b.baggins")
+comment44 = Comment.create(text: "LAWL.  Your security is weak.", ticket: ticket4, internal: true, username: "a.sharma")
+
+comment51 = Comment.create(text: "Is this where I pre-order the new game?", ticket: ticket6, internal: false, username: "e.pittaluga")
+comment52 = Comment.create(text: "I am sorry.  I do not understand.", ticket: ticket6, internal: false, username: "f.bulger")
+comment53 = Comment.create(text: "Is this not where I get Call of Duty: Modem Warfare?", ticket: ticket6, internal: false, username: "e.pittaluga")
+comment54 = Comment.create(text: "Reminds me of my dad.", ticket: ticket6, internal: true, username: "f.bulger")
+
+
+
