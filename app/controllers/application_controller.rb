@@ -4,11 +4,12 @@ class ApplicationController < ActionController::Base
     helper_method :check_login
 
     def client_welcome
+        @client_obj = Client.find(session[:logged_in_user_id])
         render :welcome
     end
 
     def current_user
-        sessions[:username]
+        session[:username]
     end
 
     def check_login

@@ -1,2 +1,15 @@
-<h1>Clients#show</h1>
-<p>Find me in app/views/clients/show.html.erb</p>
+<h1> Client information! </h1>
+
+<div><%= @client.name %></div>
+<div><%= @client.username %></div>
+<div><%= @client.phone_number%></div>
+<div><%= @client.email%></div>
+<div><%= @client.home_address%></div>
+<div><%= @client.isp.name%></div>
+
+
+<% if session[:user_class] == "Professional" %>
+    <%= link_to "My tickets", my_tickets_path(session[:logged_in_user_id]) %>
+<% else %>
+    <%= link_to "Back to the Welcome Screen", client_welcome_path %>
+<%end%>

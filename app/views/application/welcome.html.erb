@@ -1,2 +1,10 @@
-<h1> hi  </h1>
-<h2> alex and davis </h2>
+<h1> Welcome to Green Leaf Squad.  </h1>
+<h4> Going there and back again for our customers </h4>
+<h2> Thanks for logging in, <%= @client_obj.name.split.first %> </h2>
+
+<div> <%= link_to 'Submit a new ticket', new_ticket_path %> </div>
+<div><%= link_to 'Edit my personal information', edit_client_path(session[:logged_in_user_id]) %></div>
+<div><%= link_to 'View my open and closed tickets', new_ticket_path %></div>
+
+
+<%= button_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method=>:post %>

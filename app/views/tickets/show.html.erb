@@ -1,4 +1,4 @@
-<h1> This is ticket number <%= @ticket.id%>.</h1>
+<h2> This is ticket number <%= @ticket.id%>.</h2>
 
 <h3> Client info: </h3>
 
@@ -6,7 +6,6 @@
 <div><%= @ticket.client.email %></div>
 <div><%= @ticket.client.home_address %></div>
 <div><%= @ticket.client.phone_number %></div>
-
 <br>
 <h3>Assigned Professional:</h3>
 
@@ -53,3 +52,5 @@
     <%= f.hidden_field :username, :value => session[:username] %>
     <%= f.submit%>
 <% end %>
+<br>
+<%= button_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method=>:post %>

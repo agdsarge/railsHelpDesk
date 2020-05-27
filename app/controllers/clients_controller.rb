@@ -1,13 +1,14 @@
 class ClientsController < ApplicationController
     before_action :check_login
-
+    before_action :maintain_privacy, only: [:show, :edit, :update, :destroy]
     before_action :find_client, only: [:show, :edit, :update, :destroy]
 
     def index
-        @client = Client.all
+        @clients = Client.all
     end
 
     def show
+
     end
 
     def new
@@ -29,7 +30,7 @@ class ClientsController < ApplicationController
     end
 
     def update
-        @client.update
+        @client.update(client_params)
         if @client.valid?
             @client.save
             redirect_to client_path(@client)
@@ -47,6 +48,12 @@ class ClientsController < ApplicationController
 
     def client_params
         params.require(:client).permit(:name, :phone_number, :email, :home_address, :isp_id)
+    end
+
+    def maintain_privacy
+        unless session[:user_class] == 'Professional' || session[:logged_in_user_id].to_s == params[:id]
+            redirect_to client_welcome_path
+        end
     end
 
     def find_client
