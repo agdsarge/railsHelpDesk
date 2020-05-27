@@ -1,6 +1,6 @@
 class ProfessionalsController < ApplicationController
     before_action :check_login
-    before_action :find_isp, only: [:show, :edit, :update, :destroy]
+    before_action :find_professional, only: [:show, :edit, :update, :destroy, :my_tickets]
     def index
         @professionals = Professional.all
     end
@@ -41,13 +41,18 @@ class ProfessionalsController < ApplicationController
         redirect_to professionals_path(@professional)
     end
 
+    def my_tickets
+        @tickets = Ticket.all.select {|t| t.professional == @professional }
+    end
+
+
     private
 
     def professional_params
         params.require(:professional).permit(:username, :specialty, :email)
     end
 
-    def find_isp
+    def find_professional
         @professional = Professional.find(params[:id])
     end
 end

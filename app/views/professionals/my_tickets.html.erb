@@ -1,0 +1,10 @@
+<h3> look at all my pretty tickets </h3>
+
+<h2> logout button </h2>
+
+<%= @professional.name %>
+<ol>
+<% @tickets.each do |t| %>
+    <li><%= link_to "Ticket no. #{t.id}: #{t.client.name} of #{t.client.home_address}", ticket_path(t) %></li>
+<% end %>
+</ol>

@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   resources :professionals
 
   get '/' => 'sessions#new'
-  get 'welcome' => 'application#welcome'
+  get 'client_welcome' => 'application#client_welcome'
+  get 'professionals/:id/tickets/' => 'professionals#my_tickets', as: "my_tickets"
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
 

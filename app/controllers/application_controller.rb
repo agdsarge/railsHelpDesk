@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
-    
+
     helper_method :current_user
     helper_method :check_login
 
-    def welcome
+    def client_welcome
         render :welcome
     end
 

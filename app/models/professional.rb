@@ -8,7 +8,6 @@ class Professional < ApplicationRecord
         specialists_workload = specialists.map  {|s| s.tickets.count {|t| t.open == true}}
         min_workload = specialists_workload.min
         x = specialists_workload.find_index(min_workload)
-        #byebug
         specialists[x]
     end
 
