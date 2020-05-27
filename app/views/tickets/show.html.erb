@@ -14,7 +14,14 @@
 <div><%= @ticket.professional.email%></div>
 
 <br>
-<h4>button to toggle ticket status [open, close]</h4>
+<h4>Ticket Status:</h4>
+<%= form_for @ticket do |f|%>
+    <%= f.label :open, "Open", :value => "true"%>
+    <%= f.radio_button :open, true %>
+    <%= f.label :open, "Closed", :value => "false"%>
+    <%= f.radio_button :open, false %>
+    <%= f.submit%>
+<% end %>
 <!-- if you're a Pro, you might want a button to contact the ISP with a auto-generated form. -->
 <br>
 

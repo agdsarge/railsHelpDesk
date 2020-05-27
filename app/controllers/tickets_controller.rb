@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
     before_action :check_login
-    before_action :find_isp, only: [:show, :edit, :update, :destroy]
+    before_action :find_ticket, only: [:show, :edit, :update, :destroy, :toggle_open_status]
     def index
         @tickets = Ticket.all
     end
@@ -38,15 +38,16 @@ class TicketsController < ApplicationController
 
     def update
         @ticket.update(ticket_params)
-        @ticket.client = Client.find(cookies[:logged_in])
-        @ticket.professional = Professional.find_by(specialty: @ticket.description)
         if @ticket.valid?
-            @ticket.open = true
             @ticket.save
             redirect_to ticket_path(@ticket)
         else
             render :edit
         end
+    end
+
+    def toggle_open_status
+      
     end
 
     def destroy
@@ -60,7 +61,7 @@ class TicketsController < ApplicationController
         params.require(:ticket).permit(:description, :open, :client_id, :professional_id, comments_attributes: [:text, :ticket_id, :internal])
     end
 
-    def find_isp
+    def find_ticket
         @ticket = Ticket.find(params[:id])
     end
 end
