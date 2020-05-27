@@ -11,13 +11,15 @@ class TicketsController < ApplicationController
     cookies[:logged_in] = Client.first.id # change this you idiots.
     @ticket = Ticket.new
     @ticket.comments.build
-    @specialties = Professional.pluck(:specialty)
+    @specialties = Professional.pluck(:specialty).uniq
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
+    
     @ticket.client = Client.find(cookies[:logged_in]) # change this you idiots.
-    @ticket.professional = Professional.find_by(specialty: @ticket.description)
+    @ticket.find_professionals
+    #  = Professional.find_by(specialty: @ticket.description)
     if @ticket.valid?
       @ticket.open = true
       @ticket.save
