@@ -15,11 +15,13 @@ class TicketsController < ApplicationController
   end
 
   def create
+    desc = ticket_params[:description]
     @ticket = Ticket.new(ticket_params)
-    
+
     @ticket.client = Client.find(cookies[:logged_in]) # change this you idiots.
-    @ticket.find_professionals
-    #  = Professional.find_by(specialty: @ticket.description)
+
+    @ticket.professional = Professional.find_least_busy_pro(desc)
+
     if @ticket.valid?
       @ticket.open = true
       @ticket.save
