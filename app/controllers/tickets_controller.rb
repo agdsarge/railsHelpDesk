@@ -6,6 +6,7 @@ class TicketsController < ApplicationController
     end
 
     def show
+        
     end
 
     def new
@@ -47,7 +48,7 @@ class TicketsController < ApplicationController
     end
 
     def toggle_open_status
-      
+
     end
 
     def destroy

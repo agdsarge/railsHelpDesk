@@ -8,7 +8,8 @@ class ClientsController < ApplicationController
     end
 
     def show
-
+        @open_tickets = Ticket.all.select {|t| t.client == @client && t.open}
+        @closed_tickets = Ticket.all.select {|t| t.client == @client && !t.open}
     end
 
     def new

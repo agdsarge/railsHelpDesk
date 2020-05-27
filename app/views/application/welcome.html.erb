@@ -4,7 +4,7 @@
 
 <div> <%= link_to 'Submit a new ticket', new_ticket_path %> </div>
 <div><%= link_to 'Edit my personal information', edit_client_path(session[:logged_in_user_id]) %></div>
-<div><%= link_to 'View my open and closed tickets', new_ticket_path %></div>
+<div><%= link_to 'View my open and closed tickets', client_path(session[:logged_in_user_id]) %></div>
 
 
 <%= button_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method=>:post %>
