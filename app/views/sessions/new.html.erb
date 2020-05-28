@@ -1,9 +1,10 @@
-
-<p>Please enter your username</p>
+<img src="assets/greenleafsquad.jpeg" alt="visit New Zealand" class='center_align' >
+<p class=presentation_text> Welcome! Please enter your username.</p>
 
 <% if flash[:error_message] %>
     <div class="error"><%= flash[:error_message] %></div>
 <% end %>
+<br>
 
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
     <%= label_tag :username %>
