@@ -10,9 +10,13 @@ class TicketsController < ApplicationController
     end
 
     def new
-        @ticket = Ticket.new
-        @ticket.comments.build
-        @specialties = Professional.pluck(:specialty).uniq
+        if session[:user_class] == 'Professional'
+            redirect_to my_tickets_path(session[:logged_in_user_id])
+        else
+            @ticket = Ticket.new
+            @ticket.comments.build
+            @specialties = Professional.pluck(:specialty).uniq
+        end
     end
 
     def create

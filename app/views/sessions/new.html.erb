@@ -1,10 +1,12 @@
 <img src="assets/greenleafsquad.jpeg" alt="visit New Zealand" class='center_align' >
+
+<div class=pretty_margin>
 <p class=presentation_text> Welcome! Please enter your username.</p>
+
 
 <% if flash[:error_message] %>
     <div class="error"><%= flash[:error_message] %></div>
 <% end %>
-<br>
 
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
     <%= label_tag :username %>
@@ -19,3 +21,4 @@
 <br>
 <h5> New user? </h5>
 <%= link_to "Register here!", new_client_path %>
+</div>
