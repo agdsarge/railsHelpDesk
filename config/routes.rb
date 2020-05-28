@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :isps
   resources :clients
   resources :tickets
-  resources :comments
+  resources :comments, except: [:index, :destroy, :show]
   resources :professionals
 
   get '/' => 'sessions#new'
@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
 
-  post '/logout'=> 'sessions#destroy'
+  post '/logout' => 'sessions#destroy'
+  get '/:random' => 'application#retry'
 
 
 

@@ -1,16 +1,9 @@
 class CommentsController < ApplicationController
     before_action :check_login
-    before_action :find_comment, only: [:show, :edit, :update, :destroy]
-    def index
-        @comments = Comment.all
-    end
-
-    def show
-    end
+    before_action :find_comment, only: [:edit, :update]
 
     def new
         @comment = Comment.new
-        # @ticket = Ticket.find
     end
 
     def create
@@ -24,7 +17,6 @@ class CommentsController < ApplicationController
     end
 
     def edit
-
     end
 
     def update
@@ -35,11 +27,6 @@ class CommentsController < ApplicationController
         else
             render :edit
         end
-    end
-
-    def destroy
-        @comment.destroy
-        redirect_to comments_path(@comment)
     end
 
     private

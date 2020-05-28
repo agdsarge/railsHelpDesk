@@ -1,0 +1,12 @@
+<div class=pretty_margin>
+    <%= "#{@user.first_name}, you've made a mistake!" %>
+    <br>
+    <p> Here are some helpful options: </p>
+    <% if @user.class == Professional%>
+        <%= link_to "Back to the welcome screen", client_welcome_path %>
+    <%else%>
+        <%= link_to "Back to your ticket list", my_tickets_path(@user.id) %>
+    <%end%>
+    <br>
+    <%= button_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method=>:post %>
+</div>

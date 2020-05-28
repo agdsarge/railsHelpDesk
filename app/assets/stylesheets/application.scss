@@ -1,7 +1,20 @@
 @import "bootstrap/scss/bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@font-face {
+    font-family: 'BilboHandRegular-L3MZ';
+    src: url('/assets/BilboHandRegular-L3MX.ttf');
+}
+
+
+
+body {
+    background:white 
+}
 
 .pretty_margin {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'BilboHandRegular-L3MZ';
     margin: 35px;
 }
 

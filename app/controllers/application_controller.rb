@@ -3,12 +3,22 @@ class ApplicationController < ActionController::Base
     helper_method :current_user
     helper_method :check_login
     helper_method :maintain_privacy
+    before_action :check_login, only: [:client_welcome, :retry]
+
 
     def client_welcome
         client = Client.find_by(id: session[:logged_in_user_id])
         pro = Professional.find_by(id: session[:logged_in_user_id])
         client ? (@user = client) : (@user = pro)
         render :welcome
+    end
+
+    def retry
+        
+        client = Client.find_by(id: session[:logged_in_user_id])
+        pro = Professional.find_by(id: session[:logged_in_user_id])
+        client ? (@user = client) : (@user = pro)
+        render :error_page
     end
 
     def current_user
