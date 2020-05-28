@@ -2,15 +2,15 @@
 
 <h3> Client info: </h3>
 
-<div><%= @ticket.client.name %></div>
-<div><%= @ticket.client.email %></div>
-<div><%= @ticket.client.home_address %></div>
-<div><%= @ticket.client.phone_number %></div>
+<% @ticket.client.client_info.each do |datum| %>
+    <div><%= datum %> </div>
+<% end %>
+
 <br>
 <h3>Assigned Professional:</h3>
-
-<div><%= @ticket.professional.name%></div>
-<div><%= @ticket.professional.email%></div>
+<% @ticket.professional.pro_info.each do |datum| %>
+    <div><%= datum %> </div>
+<% end %>
 
 <br>
 <h4>Ticket Status:</h4>

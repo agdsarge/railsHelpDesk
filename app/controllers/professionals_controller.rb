@@ -42,8 +42,8 @@ class ProfessionalsController < ApplicationController
     end
 
     def my_tickets
-        @open_tickets = Ticket.all.select {|t| t.professional == @professional && t.open}
-        @closed_tickets = Ticket.all.select {|t| t.professional == @professional && !t.open}
+        @open_tickets = @professional.pro_open_tix
+        @closed_tickets = @professional.pro_closed_tix
     end
 
 
