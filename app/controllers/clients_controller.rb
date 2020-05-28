@@ -51,12 +51,6 @@ class ClientsController < ApplicationController
         params.require(:client).permit(:name, :phone_number, :email, :home_address, :isp_id)
     end
 
-    def maintain_privacy
-        unless session[:user_class] == 'Professional' || session[:logged_in_user_id].to_s == params[:id]
-            redirect_to client_welcome_path
-        end
-    end
-
     def find_client
         @client = Client.find(params[:id])
     end

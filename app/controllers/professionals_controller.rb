@@ -27,7 +27,7 @@ class ProfessionalsController < ApplicationController
     end
 
     def update
-        @professional.update
+        @professional.update(professional_params)
         if @professional.valid?
             @professional.save
             redirect_to professional_path(@professional)

@@ -15,7 +15,6 @@ class CommentsController < ApplicationController
 
     def create
         @comment = Comment.new(comment_params)
-        #change this you idiots
         if @comment.valid?
             @comment.save
             redirect_to ticket_path(@comment.ticket_id)
@@ -29,7 +28,7 @@ class CommentsController < ApplicationController
     end
 
     def update
-        @comment.update
+        @comment.update(comment_params)
         if @comment.valid?
             @comment.save
             redirect_to ticket_path(@comment.ticket_id)
