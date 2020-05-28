@@ -1,27 +1,6 @@
-<!-- Navigation -->
-<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
-<div class="container-fluid">
-    <a class="navbar-brand" href="/client_welcome"><img src="/assets/greenleafsquad.jpeg"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href= "/clients/<%= session[:logged_in_user_id]%>">Account Information</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href= "">View previous Tickets</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href= "/tickets/new">Create a New Ticket</a>
-        </li>
-      </ul>
-    </div>  
-</div>
-</nav>
+<%= render partial: "shared/client_top_banner_form"%>
 
-
+<div class=pretty_margin>
 <h1> Welcome to Green Leaf Squad.  </h1>
 <h4> Going there and back again for our customers </h4>
 <h2> Thanks for logging in, <%= @user.first_name %> </h2>
@@ -32,4 +11,4 @@
 
 
 <%= button_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method=>:post %>
-
+</div>

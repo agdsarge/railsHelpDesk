@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
     before_action :check_login, except: [:new, :create]
-    before_action :maintain_privacy, only: [:show, :edit, :update, :destroy]
+    before_action :maintain_privacy, only: [:show, :edit, :update, :destroy, :index]
     before_action :find_client, only: [:show, :edit, :update, :destroy]
 
     def index

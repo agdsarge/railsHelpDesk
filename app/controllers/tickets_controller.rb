@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
     before_action :check_login
     before_action :find_ticket, only: [:show, :edit, :update, :destroy]
+    before_action :proper_client_access, only: [:show, :edit, :update, :destroy]
     def index
         @tickets = Ticket.all
     end
@@ -50,6 +51,14 @@ class TicketsController < ApplicationController
     end
 
     private
+
+
+    def proper_client_access
+        find_ticket
+        unless session[:user_class] == 'Professional' || @ticket.client == Client.find(session[:logged_in_user_id])
+            redirect_to client_welcome_path
+        end
+    end
 
     def ticket_params
         params.require(:ticket).permit(:description, :open, :client_id, :professional_id, comments_attributes: [:text, :ticket_id, :internal, :username])

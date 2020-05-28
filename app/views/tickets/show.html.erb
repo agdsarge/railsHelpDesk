@@ -1,3 +1,7 @@
+<% if session[:user_class] == "Client"%>
+    <%= render partial: "shared/client_top_banner_form"%>
+<% end %>
+
 <h2> This is ticket number <%= @ticket.id%>.</h2>
 
 <h3> Client info: </h3>
