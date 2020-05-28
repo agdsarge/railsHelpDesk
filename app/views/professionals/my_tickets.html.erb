@@ -1,3 +1,4 @@
+<div class=pretty_margin>
 <%= @professional.name %>
 <h4>Open Tickets:</h4>
 <ol>
@@ -14,7 +15,9 @@
 </ol>
 
 <br>
-
+<h4> Toolbox: </h4>
+<% link_to %>
 
 
 <%= button_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method=>:post %>
+</div>

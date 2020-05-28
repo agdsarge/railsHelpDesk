@@ -47,7 +47,6 @@ class ProfessionalsController < ApplicationController
         @closed_tickets = @professional.pro_closed_tix
     end
 
-
     private
 
     def professional_params

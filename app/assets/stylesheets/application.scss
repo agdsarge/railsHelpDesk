@@ -3,18 +3,20 @@
 @import "font-awesome";
 
 @font-face {
-    font-family: 'BilboHandRegular-L3MZ';
-    src: url('/assets/BilboHandRegular-L3MX.ttf');
+    font-family: bilboregular;
+    src: url(/assets/bilboregular.ttf);
 }
 
-
+h1 {
+    font-family: bilboregular;
+}
 
 body {
     background:white 
 }
 
 .pretty_margin {
-    font-family: 'BilboHandRegular-L3MZ';
     margin: 35px;
+    font-family: Ariel, Helvetica;
 }
 
