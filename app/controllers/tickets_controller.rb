@@ -17,7 +17,7 @@ class TicketsController < ApplicationController
     def create
         desc = ticket_params[:description]
         @ticket = Ticket.new(ticket_params)
-        @ticket.client = Client.find(session[:logged_in])
+        @ticket.client = Client.find(session[:logged_in_user_id])
         @ticket.professional = Professional.find_least_busy_pro(desc)
 
         if @ticket.valid?
@@ -52,7 +52,7 @@ class TicketsController < ApplicationController
     private
 
     def ticket_params
-        params.require(:ticket).permit(:description, :open, :client_id, :professional_id, comments_attributes: [:text, :ticket_id, :internal])
+        params.require(:ticket).permit(:description, :open, :client_id, :professional_id, comments_attributes: [:text, :ticket_id, :internal, :username])
     end
 
     def find_ticket

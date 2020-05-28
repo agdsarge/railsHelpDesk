@@ -1,5 +1,5 @@
 class ClientsController < ApplicationController
-    before_action :check_login
+    before_action :check_login, except: [:new, :create]
     before_action :maintain_privacy, only: [:show, :edit, :update, :destroy]
     before_action :find_client, only: [:show, :edit, :update, :destroy]
 
@@ -48,7 +48,7 @@ class ClientsController < ApplicationController
     private
 
     def client_params
-        params.require(:client).permit(:name, :phone_number, :email, :home_address, :isp_id)
+        params.require(:client).permit(:name, :phone_number, :username, :password, :email, :home_address, :isp_id)
     end
 
     def find_client
