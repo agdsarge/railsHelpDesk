@@ -3,6 +3,8 @@ class Client < ApplicationRecord
     has_many :tickets
     has_many :professionals, through: :tickets
     has_secure_password
+    validates :username, uniqueness: true
+    validate :unique_username
 
     def first_name
         self.name.split[0]
@@ -22,6 +24,13 @@ class Client < ApplicationRecord
 
     def client_closed_tix
         Ticket.all.select {|t| t.client == self && !t.open}
+    end
+
+    private
+    def unique_username
+        if  Professional.all.pluck(:username).include?(username)
+            errors.add(:username, 'This username is already taken')
+        end
     end
 
 end

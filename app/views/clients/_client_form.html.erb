@@ -1,3 +1,4 @@
+<%= render partial: "shared/error_form", locals: {new_obj: @client} %>
 <%= form_for @client do |f| %>
     <%= f.label :name %>
     <div><%= f.text_field :name %></div>

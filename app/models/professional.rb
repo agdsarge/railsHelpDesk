@@ -2,6 +2,8 @@ class Professional < ApplicationRecord
     has_many :tickets
     has_many :clients, through: :tickets
     has_secure_password
+    validates :username, uniqueness: true
+    validate :unique_username
 
     def self.find_least_busy_pro(task_description)
         specialists = self.select {|p| p.specialty == task_description}
@@ -38,5 +40,13 @@ class Professional < ApplicationRecord
     def pro_info
         [self.name, self.email, "Specialist in #{self.specialty}"]
     end
+
+    private
+    def unique_username
+        if  Client.all.pluck(:username).include?(username)
+            errors.add(:username, 'This username is already taken')
+        end
+    end
+
 
 end
