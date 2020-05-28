@@ -1,0 +1,14 @@
+<%= render partial: "shared/error_form", locals: {new_obj: @professional} %>
+<%= form_for @professional do |f| %>
+    <%= f.label :name %>
+    <div><%= f.text_field :name %></div>
+    <%= f.label :username %>
+    <div><%= f.text_field :username %></div>
+    <%= f.label :password %>
+    <div><%= f.password_field :password %></div>
+    <%= f.label :phone_number %> 
+    <div><%= f.text_field :email %></div>
+    <%= f.label :specialty %>
+    <div><%= f.text_field :specialty %></div>
+    <div><%= f.submit %></div>
+<% end %>
