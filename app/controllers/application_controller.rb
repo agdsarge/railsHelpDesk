@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
     helper_method :maintain_privacy
 
     def client_welcome
-        @client_obj = Client.find(session[:logged_in_user_id])
+        client = Client.find_by(id: session[:logged_in_user_id])
+        pro = Professional.find_by(id: session[:logged_in_user_id])
+        client ? (@user = client) : (@user = pro)
         render :welcome
     end
 
