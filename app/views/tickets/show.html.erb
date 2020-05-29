@@ -59,6 +59,12 @@
     <%= f.submit%>
 <% end %>
 <br>
+<% if session[:user_class] == "Professional"%>
+    <%= link_to "Exterior Connection Problem", isp_form_email_path(@ticket.client) %>
+<% end %>
+
+
+
 <%= button_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method=>:post %>
 
 </div>

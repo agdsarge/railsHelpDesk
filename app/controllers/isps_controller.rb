@@ -8,6 +8,13 @@ class IspsController < ApplicationController
     def show
     end
 
+    def form_email
+        @client = Client.find(params[:id])
+        @com = @client.isp
+        @tech = Professional.find(session[:logged_in_user_id])
+    end
+
+
     def new
         @isp = Isp.new
     end

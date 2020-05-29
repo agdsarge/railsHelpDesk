@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get 'professionals/:id/tickets/' => 'professionals#my_tickets', as: "my_tickets"
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-
+  get '/isp_email/:id' => 'isps#form_email', as: "isp_form_email"
+ 
   post '/logout' => 'sessions#destroy'
   get '/:random' => 'application#retry'
 

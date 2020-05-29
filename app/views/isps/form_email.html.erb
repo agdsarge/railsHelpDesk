@@ -1,0 +1,18 @@
+<div class=pretty_margin>
+
+    <p>To: <%= "#{@com.name} (#{@com.email})" %> </p>
+    <p>From: <%= "#{@tech.name} (#{@tech.email})" %> </p>
+    <p>CC: <%= "#{@client.name} (#{@client.email})" %> </p>
+    <br>
+
+    <p> Hello, </p>
+    <p><%= "#{@client.name} of #{@client.home_address} in Washington, DC. is a client of Green Leaf Squad, a technical support company." %></p>
+    <p><%= "Recently, #{@client.first_name} opened a support request with us." %> </p>
+    <p> <%= "Our professional, #{@tech.name}, determined there was no problem within the residence." %></p>
+    <p> <%= "Please investigate the wiring for external connectivity problems at #{@client.home_address}. " %> </p>
+    <br>
+    <p> Thank you, </p>
+    <p> Green Leaf Squad </p> 
+    <br><br>
+    <%= link_to "Back to my tickets", my_tickets_path(@tech) %>
+</div>
