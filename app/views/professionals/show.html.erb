@@ -1,2 +1,9 @@
-<h1>Professionals#show</h1>
-<p>Find me in app/views/professionals/show.html.erb</p>
+<div class=pretty_margin>
+    <% @professional.pro_info.each do |datum| %>
+        <div><%= datum %></div>
+    <% end %>
+    <br>
+    <%= link_to "Technician Roster", professionals_path %><br>
+    <%= link_to "Back to #{Professional.find(session[:logged_in_user_id]).first_name}'s tickets", my_tickets_path(session[:logged_in_user_id]) %>
+
+</div>

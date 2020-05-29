@@ -1,9 +1,10 @@
 <div class=pretty_margin>
 <h1> Technician Roster </h1>
     <% @professionals.each do |pro| %>
-        <div><%= link_to "#{pro.name}", my_tickets_path(pro.id) %></div>
+        <div><%= link_to "#{pro.name}", professional_path(pro.id) %></div>
     <% end %>
 <br>
+
 <%= link_to "Back to My Tickets", my_tickets_path(session[:logged_in_user_id]) %>
 </div>
 
