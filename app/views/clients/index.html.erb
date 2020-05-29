@@ -1,5 +1,10 @@
-<h1>Clients#index</h1>
+<div class=pretty_margin>
+<h1>Our valued customers</h1>
 
 <% @clients.each do |cli| %>
     <div><%= link_to "#{cli.name}", client_path(cli) %></div>
 <% end %>
+<br>
+<%= link_to "My tickets", my_tickets_path(session[:logged_in_user_id]) %>
+
+</div>

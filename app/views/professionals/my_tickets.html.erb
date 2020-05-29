@@ -1,31 +1,33 @@
 <div class=pretty_margin>
-<%= @professional.name %>
+    
+    <h1><%= @professional.name %></h1>
 
-<h4>Open Tickets:</h4>
-<ol>
-    <% @open_tickets.each do |t| %>
-        <% if t.client %>
-            <li><%= link_to "Ticket no. #{t.id}: #{t.client.name} of #{t.client.home_address}", ticket_path(t) %></li>
-        <% else %>
-            <%= link_to "Ticket no. #{t.id}: OLD TICKET", ticket_path(t) %></li>
+    <h4>Open Tickets:</h4>
+    <ol>
+        <% @open_tickets.each do |t| %>
+            <% if t.client %>
+                <li><%= link_to "Ticket no. #{t.id}: #{t.client.name} of #{t.client.home_address}", ticket_path(t) %></li>
+            <% else %>
+                <%= link_to "Ticket no. #{t.id}: OLD TICKET", ticket_path(t) %></li>
+            <% end %>
         <% end %>
-    <% end %>
-</ol>
+    </ol>
 
-<h4>Closed Tickets:</h4>
-<ol>
-    <% @closed_tickets.each do |t| %>        
-        <li><%= link_to "Ticket no. #{t.id}: #{t.client.name} of #{t.client.home_address}", ticket_path(t) %></li>
-     <% end %>
-</ol>
+    <h4>Closed Tickets:</h4>
+    <ol>
+        <% @closed_tickets.each do |t| %>        
+            <li><%= link_to "Ticket no. #{t.id}: #{t.client.name} of #{t.client.home_address}", ticket_path(t) %></li>
+        <% end %>
+    </ol>
 
-<br>
-<h4> Toolbox: </h4>
-<%= link_to "Remove a client or professional", rm_user_path %>
-<br>
-<%= link_to "Create a new professional", new_professional_path %>
+    <br>
+    <h4> Toolbox: </h4>
+    <div><%= link_to "Remove a client or professional", rm_user_path %></div>
 
+    <div><%= link_to "Create a new professional", new_professional_path %></div>
+    <div><%= link_to "All clients", clients_path %></div>
+    <div><%= link_to "Roster of technicians", professionals_path %></div>
 
-<br>
-<%= button_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method=>:post %>
+    <br>
+    <%= button_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method=>:post %>
 </div>

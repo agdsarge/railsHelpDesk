@@ -25,12 +25,8 @@
 
 <br>
 
-
-
 <% if session[:user_class] == "Professional" %>
     <%= link_to "My tickets", my_tickets_path(session[:logged_in_user_id]) %>
-<% else %>
-    <%= link_to "Back to the Welcome Screen", client_welcome_path %>
 <%end%>
 
 </div>

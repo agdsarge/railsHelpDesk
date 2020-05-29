@@ -9,7 +9,7 @@
             <div>
                 <%= cf.label :text %>
                 <%= cf.text_field :text %>
-                <%= cf.label :internal %>
+                
                 <%= cf.hidden_field :internal, :value => false %>
                 <%= cf.hidden_field :username, :value => Client.find(session[:logged_in_user_id]).username %>
             </div>

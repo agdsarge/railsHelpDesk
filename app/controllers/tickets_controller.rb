@@ -15,7 +15,7 @@ class TicketsController < ApplicationController
         else
             @ticket = Ticket.new
             @ticket.comments.build
-            @specialties = Professional.pluck(:specialty).uniq
+            @specialties = Professional.pluck(:specialty).uniq << 'other'
         end
     end
 
