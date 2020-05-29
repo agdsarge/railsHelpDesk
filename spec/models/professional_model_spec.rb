@@ -9,17 +9,25 @@ RSpec.describe Professional do
         @mb = Professional.create(name: "Merry Brandybuck", username: "mb", password: "rohan", email: 'merry@greenleaf.com', specialty: 'routers')
         @sg = Professional.create(name: "Sam Gamgee", username: "sgamgee", password: "garden", email: 'sam@greenleaf.com', specialty: 'wifi')
         @tckt = Ticket.create(description: "routers", client: @pn, professional: @fb, open: true)
+        @tckt2 = Ticket.create(description: "routers", client: @pn, professional: @fb, open: false)
+        @tckt2 = Ticket.create(description: "routers", client: @pn, professional: @fb, open: true)
     end
     
     describe "#specialty" do
         it "returns the specialty of the professional, testing the attribute" do
             expect(@fb.specialty).to eq("routers")
         end
-        it "returns the specialty of the professional, testing the attribute" do
-            expect(@mb.specialty).to eq("routers")
+    end
+
+    describe "#pro_open_tix" do
+        it "returns an array-ish AR obj of open tickets that belong to the pro." do
+            expect(@fb.pro_open_tix.length).to eq(2)
         end
-        it "returns the specialty of the professional, testing the attribute" do
-            expect(@sg.specialty).to eq("wifi")
+    end
+
+    describe "#pro_closed_tix" do
+        it "returns an array-ish AR obj of open tickets that belong to the pro." do
+            expect(@fb.pro_closed_tix.length).to eq(1)
         end
     end
 
