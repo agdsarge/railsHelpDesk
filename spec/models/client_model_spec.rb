@@ -26,15 +26,8 @@ RSpec.describe Client do
     end
 
     describe "#email" do
-        it "returns the name of the given person's ISP, testing the relation" do
+        it "returns the email address of the given person, testing the attribute" do
             expect(@pn.email).to eq("p.nicholsen@flatiron.com")
-        end
-    end
-
-    describe "#uniqueness" do
-        subject { Client.create(name: 'Peter Nicholsen', username: "p.nicholsen", password: "password", phone_number: '202 555 5678', email: 'p.nicholsen@flatiron.com', home_address: '1600 Pennsylvania Ave', isp_id: @vz.id)}
-        it "validates the uniqueness of a username" do
-            should validate_uniqueness_of(:username)
         end
     end
 end
