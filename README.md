@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This webapp imitates a helpdesk for a fictional tech support company, Green Leaf Squad.
 
-Things you may want to cover:
+Clients of the company can file tickets with their issue. A professional with the company can respond to their concern. 
+In addition, professionals can leave internal comments on the ticket for other professionals to view.
 
-* Ruby version
+Passwords are hashed for a minimal level of authentication.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This help desk webapp is built with Rails, some Bootstrap and SQLite3. 
