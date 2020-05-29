@@ -1,7 +1,7 @@
 <img src="assets/greenleafsquad.jpeg" alt="visit New Zealand" class='center_align' >
 
 <div class=pretty_margin>
-<p class=presentation_text> Welcome! Please enter your username.</p>
+<p class=presentation_text> Welcome! Please enter your username and password to begin..</p>
 
 
 <% if flash[:error_message] %>
@@ -10,11 +10,11 @@
 
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
     <%= label_tag :username %>
-    <%= text_field_tag :username %>
-    <div>
+    <div><%= text_field_tag :username %></div>
+    <br>
     <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    <div>
+    <div><%= password_field_tag :password %></div>
+    <br>
     <%= submit_tag "Login" %>
 <% end %>
 <br>
