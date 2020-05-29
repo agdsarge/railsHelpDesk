@@ -16,8 +16,10 @@
 
 <br>
 <h4> Toolbox: </h4>
-<% link_to "Delete a client", %>
+<p> text </p>
+<%= link_to "Remove a client or professional", rm_user_path %>
 
 
+<br>
 <%= button_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method=>:post %>
 </div>

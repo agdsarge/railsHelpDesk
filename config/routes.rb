@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get '/' => 'sessions#new'
   get 'client_welcome' => 'application#client_welcome'
+  get 'administration' => 'professionals#remove_user', as: "rm_user"
   get 'professionals/:id/tickets/' => 'professionals#my_tickets', as: "my_tickets"
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

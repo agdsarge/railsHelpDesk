@@ -11,10 +11,10 @@
           <a class="nav-link" href= "/clients/<%= session[:logged_in_user_id]%>">Account Information</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href= "">View previous Tickets</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href= "/tickets/new">Create a New Ticket</a>
+        </li>
+        <li class="nav-btn">
+          <a class="nav-link" data-method="post" href="/logout">Logout</a>
         </li>
       </ul>
     </div>  

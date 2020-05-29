@@ -47,6 +47,11 @@ class ProfessionalsController < ApplicationController
         @closed_tickets = @professional.pro_closed_tix
     end
 
+    def remove_user
+        render :remove_user
+    end
+
+
     private
 
     def professional_params
