@@ -1,3 +1,5 @@
+<%= render partial: "shared/client_top_banner_form"%>
+<div class=pretty_margin>
 <h1> Client information! </h1>
 
 <div><%= @client.name %></div>
@@ -30,3 +32,5 @@
 <% else %>
     <%= link_to "Back to the Welcome Screen", client_welcome_path %>
 <%end%>
+
+</div>

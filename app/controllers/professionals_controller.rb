@@ -1,7 +1,7 @@
 class ProfessionalsController < ApplicationController
     before_action :check_login
     before_action :find_professional, only: [:show, :edit, :update, :destroy, :my_tickets]
-    before_action :maintain_privacy, only: [:show, :edit, :update, :destroy, :my_tickets]
+    before_action :maintain_privacy, only: [:show, :edit, :update, :destroy, :my_tickets, :index]
     def index
         @professionals = Professional.all
     end

@@ -2,6 +2,8 @@
     <%= render partial: "shared/client_top_banner_form"%>
 <% end %>
 
+<div class=pretty_margin>
+
 <h2> This is ticket number <%= @ticket.id%>.</h2>
 
 <h3> Client info: </h3>
@@ -58,3 +60,5 @@
 <% end %>
 <br>
 <%= button_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method=>:post %>
+
+</div>

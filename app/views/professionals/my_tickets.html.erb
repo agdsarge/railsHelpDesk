@@ -5,7 +5,7 @@
 <ol>
     <% @open_tickets.each do |t| %>
         <% if t.client %>
-            <%= link_to "Ticket no. #{t.id}: #{t.client.name} of #{t.client.home_address}", ticket_path(t) %></li>
+            <li><%= link_to "Ticket no. #{t.id}: #{t.client.name} of #{t.client.home_address}", ticket_path(t) %></li>
         <% else %>
             <%= link_to "Ticket no. #{t.id}: OLD TICKET", ticket_path(t) %></li>
         <% end %>
