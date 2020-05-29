@@ -39,7 +39,7 @@ class ProfessionalsController < ApplicationController
 
     def destroy
         @professional.destroy
-        redirect_to professionals_path(@professional)
+        redirect_to rm_user_path
     end
 
     def my_tickets
@@ -48,9 +48,10 @@ class ProfessionalsController < ApplicationController
     end
 
     def remove_user
+        @clients = Client.all
+        @professionals = Professional.all
         render :remove_user
     end
-
 
     private
 

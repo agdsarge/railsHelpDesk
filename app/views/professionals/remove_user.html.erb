@@ -1,6 +1,22 @@
 <div class=pretty_margin>
 <h3> TEST </h3>
 
+<% @clients.each do |client| %>
+    <div>
+      <span><%= client.name %></span>
+      <%= link_to "Delete", client, method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
+<% end %>
+
+<% @professionals.each do |pro| %>
+    <div>
+      <span><%= pro.name %></span>
+      <%= link_to "Delete", pro, method: :delete, data: { confirm: "Really?" } %>
+    </div>
+    <% end %>
+
+
+
 
 
 
