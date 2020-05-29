@@ -17,7 +17,7 @@ class ProfessionalsController < ApplicationController
         @professional = Professional.new(professional_params)
         if @professional.valid?
             @professional.save
-            redirect_to professional_path(@professional)
+            redirect_to my_tickets_path(session[:logged_in_user_id])
         else
             render :new
         end
@@ -31,7 +31,7 @@ class ProfessionalsController < ApplicationController
         @professional.update(professional_params)
         if @professional.valid?
             @professional.save
-            redirect_to professional_path(@professional)
+            redirect_to my_tickets_path(session[:logged_in_user_id])
         else
             render :edit
         end

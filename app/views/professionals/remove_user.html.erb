@@ -1,23 +1,23 @@
 <div class=pretty_margin>
-<h3> TEST </h3>
+<h3> Remove a user </h3>
+<br>
 
-<% @clients.each do |client| %>
+<% @clients.each do |client| %> 
     <div>
       <span><%= client.name %></span>
       <%= link_to "Delete", client, method: :delete, data: { confirm: "Are you sure?" } %>
     </div>
 <% end %>
-
+<br><br>
 <% @professionals.each do |pro| %>
     <div>
-      <span><%= pro.name %></span>
-      <%= link_to "Delete", pro, method: :delete, data: { confirm: "Really?" } %>
+        <% unless pro.id == session[:logged_in_user_id] %>
+            <span><%= pro.name %></span>
+            <%= link_to "Delete", pro, method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
     </div>
-    <% end %>
+<% end %>
 
-
-
-
-
-
+<br>
+<%= link_to "back to home",my_tickets_path(session[:logged_in_user_id]) %>
 </div>
