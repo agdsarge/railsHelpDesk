@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rspec', '~> 3.0'
 gem 'font-awesome-sass', '~> 5.13.0'
-
+gem 'rspec-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
